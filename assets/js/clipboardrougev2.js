@@ -22,6 +22,8 @@ var codeChunk = document.querySelectorAll("pre");
 for (var i = 0; i < codeChunk.length; i++) {
 
   var pre = codeChunk.item(i);
+  var child = pre.firstElementChild;
+
   // Check if there is a child
   if (child !== null) {
     // Check if child is code 
