@@ -16,6 +16,12 @@ Syntax highlighting is a feature that displays source code, in different colors 
 
 GitHub Flavored Markdown [fenced code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) are supported. To modify styling and highlight colors edit `/_sass/syntax.scss`.
 
+<pre>
+This is a pre without a code, should I have a button?
+
+</pre>
+
+
 ```css
 #container {
   float: left;
