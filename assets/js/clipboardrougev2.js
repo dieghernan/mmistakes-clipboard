@@ -15,33 +15,43 @@ async function buttonBlink(btn, style) {
 // End
 
 
-// Select highlghted codes
-var codeChunk = document.querySelectorAll("pre > code");
+// Select all pre codes
+var codeChunk = document.querySelectorAll("pre");
 
 // Loop to add buttons
 for (var i = 0; i < codeChunk.length; i++) {
 
   var pre = codeChunk.item(i);
-  var btn = document.createElement("button");
-  // Prepare button
-  btn.innerHTML = "<i class='far fa-copy'></i>"; // Icon to be displayed on the button
+  var child = pre.firstElementChild;
 
-  // Inline styling - may be a new css class, to be added in the next section
-  btn.style.position = "absolute";
-  btn.style.right = "1em";
+  // Check if there is a child
+  if (child !== null) {
+    // Check if child is code 
+    // tagName output is UPCASE
 
-  // Button: CSS - Add new classes
-  btn.classList.add("btn", "btn--primary");
+    if (child.tagName == "CODE") {
 
-  // Identifier for ClipboardJS
-  btn.setAttribute("data-clipboard-copy", "");
+      var btn = document.createElement("button");
+      // Prepare button
+      btn.innerHTML = "<i class='far fa-copy'></i>"; // Icon to be displayed on the button
 
-  // aria-label: btn.setAttribute("aria-label", "Copy to clipboard");
-  // etc.
+      // Inline styling - may be a new css class, to be added in the next section
+      btn.style.position = "absolute";
+      btn.style.right = "1em";
 
-  // Insert button
-  pre.insertBefore(btn, pre.firstChild);
+      // Button: CSS - Add new classes
+      btn.classList.add("btn", "btn--primary");
 
+      // Identifier for ClipboardJS
+      btn.setAttribute("data-clipboard-copy", "");
+
+      // aria-label: btn.setAttribute("aria-label", "Copy to clipboard");
+      // etc.
+
+      // Insert button
+      pre.insertBefore(btn, pre.firstChild);
+    }
+  }
 }
 // End
 
